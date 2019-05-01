@@ -1,4 +1,6 @@
-Laravel sample CRUD using Eloquent and Ajax with Yajra Datatables
+# Sample-CRUD-with-Yajra-Datatables
+
+Sample laravel app with Yajra Datatables and CRUD using Eloquent and Ajax
 
 1. After cloning this repo:
     - composer install     //// To install depedencies and Yajra datatables
