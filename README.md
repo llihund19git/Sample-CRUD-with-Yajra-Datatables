@@ -5,14 +5,14 @@ Laravel sample CRUD using Eloquent and Ajax with Yajra Datatables
 
 2. Update .env.example file for the database connection, edit these line and SAVE as .env,
     create a database first if you don't have database for this sample project :
-
+    ```
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
     DB_DATABASE=homestead
     DB_USERNAME=homestead
     DB_PASSWORD=secret
-
+    ```
 3. Generate app key
     - php artisan key:generate
 
@@ -33,6 +33,7 @@ Added files or code in files
     -php artisan make:model Product --migration
 
 3. On the database/migrations folder, find the create_products_table.php and update Schema create:
+    ```
     Schema::create('products', function (Blueprint $table) {
         $table->bigIncrements('id');
         $table->bigInteger('user_id')->unsigned();
@@ -41,6 +42,7 @@ Added files or code in files
         $table->float('price');
         $table->timestamps();
     });
+    ```
 
 4. On the app folder, open Product.php and update the Product model:
     class Product extends Model
@@ -58,7 +60,7 @@ Added files or code in files
 4. Create user, password and product table in the database:
     -php artisan migrate
 
-5. Open composer.json and add to this to require:
+5. Open composer.json and add this to require:
     - "yajra/laravel-datatables": "^1.0",
     - "yajra/laravel-datatables-oracle": "^9.0"
 
