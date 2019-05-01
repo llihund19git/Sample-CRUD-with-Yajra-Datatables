@@ -1,5 +1,34 @@
 Laravel sample CRUD using Eloquent with Yajra Datatables
 
+Requirements:
+Composer
+npm
+
+1. After cloning this git:
+    - composer install     //// To install depedencies and Yajra datatables
+
+2. Update .env.example file for the database connection, edit these line and SAVE as .env,
+    create a database first if you don't have database for this sample project :
+
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=homestead
+    DB_USERNAME=homestead
+    DB_PASSWORD=secret
+
+3. Generate app key
+    - php artisan key:generate
+
+4. Insert tables (I already create a migration file for product table)
+    - php artisan migrate
+
+5. Run the server. Try to register first so you will be able to log in
+    - php artisan serve
+
+6. On the dashboard, you can see the listing, create, update and delete data.
+
+
 1. Install laravel, two ways
     :Via Laravel Installer (Prerequisite: Composer)
         -composer global require laravel/installer
