@@ -41,6 +41,7 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
+                    @csrf
                     <label for="name">Name:</label>
                     <input type="text" class="form-control" id="name">
                 </div>
@@ -114,7 +115,8 @@
         $('#add').on('click', function () {
             $.ajax({
                 url: '{{route('getAddProduct')}}',
-                data: {name: $('#name').val(), price: $('#price').val()},
+                method: 'POST',
+                data: { _token: "{{ csrf_token() }}", name: $('#name').val(), price: $('#price').val()},
                 success: function(response) {
                     if (response.is_success) {
                         dtProduct.ajax.reload();
@@ -140,7 +142,8 @@
         $('#edit').on('click', function () {
             $.ajax({
                 url: '{{route('getEditProduct')}}',
-                data: {id: $('#editID').val(), name: $('#editName').val(), price: $('#editPrice').val()},
+                method: 'POST',
+                data: { _token: "{{ csrf_token() }}", id: $('#editID').val(), name: $('#editName').val(), price: $('#editPrice').val()},
                 success: function(response) {
                     if (response.is_success) {
                         dtProduct.ajax.reload();
@@ -157,7 +160,8 @@
             if (confirm('Are you sure you want to delete this data ?')) {
                 $.ajax({
                     url: '{{route('getDeleteProduct')}}',
-                    data: {id: aydi},
+                    method: 'POST',
+                    data: { _token: "{{ csrf_token() }}", id: aydi},
                     success: function(response) {
                         if (response.is_success) {
                             dtProduct.ajax.reload();

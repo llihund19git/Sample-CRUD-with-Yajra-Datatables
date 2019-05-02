@@ -19,6 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/product/get', 'HomeController@getProducts')->name('getProducts');
-Route::get('/product/add', 'HomeController@addProduct')->name('getAddProduct');
-Route::get('/product/edit', 'HomeController@editProduct')->name('getEditProduct');
-Route::get('/product/delete', 'HomeController@deleteProduct')->name('getDeleteProduct');
+Route::post('/product/add', 'HomeController@addProduct')->name('getAddProduct');
+Route::post('/product/edit', 'HomeController@editProduct')->name('getEditProduct');
+Route::post('/product/delete', 'HomeController@deleteProduct')->name('getDeleteProduct');

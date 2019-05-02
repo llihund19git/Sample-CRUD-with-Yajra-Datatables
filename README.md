@@ -3,7 +3,7 @@
 Sample laravel app with Yajra Datatables and CRUD using Eloquent and Ajax
 
 1. After cloning this repo:
-    - composer install     //// To install depedencies and Yajra datatables
+    - composer install     // To install depedencies and Yajra datatables
 
 2. Update .env.example file for the database connection, edit these line and SAVE as .env,
     create a database first if you don't have database for this sample project :
