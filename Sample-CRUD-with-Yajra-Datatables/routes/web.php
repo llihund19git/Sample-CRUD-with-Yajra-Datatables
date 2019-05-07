@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'ProductsController@index')->middleware('auth')->name('home');
-Route::resource('/products', 'ProductsController')->middleware('auth');
-Route::get('/products/get/data', 'ProductsController@getProducts')->middleware('auth')->name('getProducts');
+Route::middleware('auth')->group(function() {
+    Route::get('/home', 'ProductsController@index')->name('home');
+    Route::resource('/products', 'ProductsController');
+    Route::get('/products/get/data', 'ProductsController@getProducts')->name('getProducts');
+});
