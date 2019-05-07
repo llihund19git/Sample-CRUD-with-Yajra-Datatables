@@ -114,7 +114,7 @@
 
         $('#add').on('click', function () {
             $.ajax({
-                url: '{{route('getAddProduct')}}',
+                url: '{{route('products.store')}}',
                 method: 'POST',
                 data: { _token: "{{ csrf_token() }}", name: $('#name').val(), price: $('#price').val()},
                 success: function(response) {
@@ -141,9 +141,9 @@
 
         $('#edit').on('click', function () {
             $.ajax({
-                url: '{{route('getEditProduct')}}',
-                method: 'POST',
-                data: { _token: "{{ csrf_token() }}", id: $('#editID').val(), name: $('#editName').val(), price: $('#editPrice').val()},
+                url: '{{route('products.update', ':id')}}'.replace(':id', $('#editID').val()),
+                method: 'PATCH',
+                data: { _token: "{{ csrf_token() }}", id: $('#editID').val(), name: $('#editName').val(), price: $('#editPrice').val() },
                 success: function(response) {
                     if (response.is_success) {
                         dtProduct.ajax.reload();
@@ -159,9 +159,9 @@
 
             if (confirm('Are you sure you want to delete this data ?')) {
                 $.ajax({
-                    url: '{{route('getDeleteProduct')}}',
-                    method: 'POST',
-                    data: { _token: "{{ csrf_token() }}", id: aydi},
+                    url: '{{route('products.destroy', ':id')}}'.replace(':id', aydi),
+                    type: 'DELETE',
+                    data: { _token: "{{ csrf_token() }}"},
                     success: function(response) {
                         if (response.is_success) {
                             dtProduct.ajax.reload();
